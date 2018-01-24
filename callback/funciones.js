@@ -6,4 +6,4 @@ hagoAlgo(function(){
     console.log("Hola ROCO !!");
 });
 
-console.log("GitHub");
+// Continuando con la leccion
