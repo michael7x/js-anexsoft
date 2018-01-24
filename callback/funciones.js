@@ -6,4 +6,6 @@ hagoAlgo(function(){
     console.log("Hola ROCO !!");
 });
 
-console.log("GitHub");
+// Continuando con la leccion
+
+// OJO se deben dar 2 saltos en VSCODE para que coja el comentario
