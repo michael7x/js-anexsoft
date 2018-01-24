@@ -7,3 +7,5 @@ hagoAlgo(function(){
 });
 
 // Continuando con la leccion
+
+// OJO se deben dar
