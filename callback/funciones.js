@@ -8,4 +8,4 @@ hagoAlgo(function(){
 
 // Continuando con la leccion
 
-// OJO se deben dar
+// OJO se deben dar 2 saltos en VSCODE para que coja el comentario
