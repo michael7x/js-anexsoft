@@ -5,3 +5,17 @@ function esPar(n){
 function saludar(nombre){
     console.log("Hola "+nombre);
 }
+
+function calcularNumerosPares(numeros){
+    var respuesta = [];
+
+    numero.forEach(function (x){
+        if(esPar(x)){
+            respuesta.push(x + ' es par');
+        }else{
+            respuesta.push(x + ' es impar');
+        }
+    });
+
+    return respuesta;
+}
