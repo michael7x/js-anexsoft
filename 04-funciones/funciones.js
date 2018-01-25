@@ -9,7 +9,7 @@ function saludar(nombre){
 function calcularNumerosPares(numeros){
     var respuesta = [];
 
-    numero.forEach(function (x){
+    numeros.forEach(function (x){
         if(esPar(x)){
             respuesta.push(x + ' es par');
         }else{
@@ -18,4 +18,14 @@ function calcularNumerosPares(numeros){
     });
 
     return respuesta;
+}
+
+function darFormato(monto, moneda){
+    moneda = moneda || false;
+
+    if(moneda){
+        return 'USD '+ monto.toFixed(2);
+    }else{
+        return monto.toFixed(2);
+    }
 }
