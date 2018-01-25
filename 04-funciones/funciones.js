@@ -29,3 +29,32 @@ function darFormato(monto, moneda){
         return monto.toFixed(2);
     }
 }
+
+var Calculos = {
+    iva: 0.12,
+
+    calcularIva: function(monto){
+        return monto * Calculos.iva;
+    },
+
+    calcularMontoSinIva : function(monto){
+        return monto * ( 1 - Calculos.iva );
+    }
+};
+
+var Matematicas = {
+    Aritmetica : {},
+    Financiera : {}
+}
+
+Matematicas.Aritmetica.suma = function(a, b){
+    return a + b;
+}
+
+Matematicas.Aritmetica.resta = function(a, b){
+    return a - b;
+}
+
+Matematicas.Financiera.calcularTea = function(capital, interes, periodo){
+    return capital = Math.pow(1 + interes, periodo)
+}
