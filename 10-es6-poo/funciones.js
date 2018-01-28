@@ -2,73 +2,91 @@
      ECMAScript 6, desarrollado por Anexsoft
 */
 
-/* ¿Qué es? */
-// Es una especificación de Lenguaje para que cada navegador pueda implementar
-// javascript y no haya problemas de compatibilidad (en teoría);
+// class User{
+//     constructor(id, name, enabled){
+//         this.id = id;
+//         this.name = name;
+//         this.enabled = enabled;
+//     }
 
-/* Variables tipo LET */
-// if(true){
-//     // Con la palabra reservada var , se establecera en todo el entorno de ejecucion    
-//     var a = 1;
-//     // Con la palabra reservada led, solo funcionara a dentro del scope actual
-//     let a = 1;
+//     goToRun(){
+//         return 'He is running now ..';
+//     }
+
+//     isEnabled(){
+//         return (this.enabled ? 'Yes' : 'False');
+//     }
+
+//     static _getCredit(){
+//         return 'Es clase usuario, usada para el módulo de usuarios.';
+//     }
 // }
 
-// console.log(a);
+ // var user = new User(1, 'Eduardo', true);
 
-/* Operador Arrow */
-// ES 5
-// [1,2,3].forEach(function(x){
-//     console.log(x);
-// });
+ class Combat{
+     constructor(pj1, pj2){
+        this.pj1 = pj1;
+        this.pj2 = pj2;
+     }
 
-// ES 6
-// [1,2,3].forEach(x => {
-//     console.log(x);
-// });
+     fight(){
+         while(this.pj1.hp > 0 && this.pj2.hp > 0){
+             // Si sale 1 ataca pj1 del caso contrario pj2
+             var whoAttack = Math.floor(Math.random() * 2) + 1;
 
-// [1,2,3].forEach((x,i) => {
-//     console.log(i);
-// });
+             if(whoAttack === 1){
+                this.pj1.attack();
 
-/* Parámetros por defecto */
-// function diAlgo(x = 'Carla'){
-//     // x = ( x || 'Carla'); // ES 5
-//     return 'Algo: '+ x;
-// }
+                this.pj2.hp -= this.pj1.dmg;
+                this.pj2.getHP();
+             }else{
+                this.pj2.attack();
 
-/* Parámetros tipo REST */
-// function dameDeComer(...comida){
-//     return 'Estoy comiendo: '+ comida.join(', ');
-// }
+                this.pj1.hp -= this.pj2.dmg;
+                this.pj1.getHP();
+             }
+         }
 
-// Forma de llamar una funcion de tipo REST
-//dameDeComer('Manzana','Pera','Banano');
+         if(this.pj1.hp > 0){
+            console.log(`${this.pj1.name} winner`);
+         }else{
+            console.log(`${this.pj2.name} winner`);
+         }
+     }
+ }
 
-/* Templates */
-// function template(obj){
-//     // ES  5
-//     //return 'Hola '+obj.nombre+', usted es: '+obj.profesion;
-//     return `Hola ${obj.nombre}, usted es: ${obj.profesion}`;
-// }
+ class BaseCharacter{
+     constructor(name, hp, dmg){
+        this.name = name;
+        this.hp = hp;
+        this.dmg = dmg;
+     }
 
-/* Declaración rápida de objetos sin especificar el Key */
-// let nombre = 'Eduardo',
-//     profesion = 'Músico';
+     attack(){
+        console.log(`${this.name} is attacking with ${this.dmg} damage points`);
+     }
 
-// let obj = {
-//     nombre,
-//     profesion,
-//     ['a'+(function(){ return 1 })] : 'Algo'
-// };
+     getHP(){
+        console.log(`${this.name} has ${this.hp} health points`);
+     }
+ }
 
-/* Metodos declarados como propiedades */
-var obj = {
-    // ES 5
-    // diAlgo : function(){
-    //     return 'Algo..';
-    // }
-    diAlgo() {
-        return 'Algo..';
-    }
-};
+ class Soldier extends BaseCharacter{
+     constructor(){
+         super('Soldier',100,25);
+     }
+ }
+
+ class Orc extends BaseCharacter{
+     constructor(){
+         super('Orc', 200,35);
+     }
+ }
+
+ var combat = new Combat(
+     new Soldier(),
+     new Orc
+ );
+
+ combat.fight();
